@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
 
-class App extends Component {
+
+import { HashRouter,Switch,Route} from 'react-router-dom'
+import './assets/styles/app.less'
+
+//引入页面
+import Login from './pages/login/Login'
+import Nav from './pages/nav/Nav'
+import Reg from './pages/reg/Reg'
+import Error404 from './pages/Error404/Error404'
+//引入状态
+import store from './pages/store/store'
+//数据容器
+import { Provider } from 'react-redux'
+
+export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className='appBox'>
+      <Provider store={store}>
+          <HashRouter>
+              <Switch>
+                  <Route path='/' exact component={ Nav }/>
+                  <Route path='/login' component={ Login }/>                 
+                  <Route path='/reg' component={ Reg }/>
+                  <Route component={Error404}/>
+              </Switch>
+          </HashRouter>
+          </Provider>
       </div>
-    );
+    )
   }
 }
-
-export default App;

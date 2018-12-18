@@ -1,0 +1,47 @@
+
+//最大容器
+.houseitem-container{
+    //背景色
+    //内外边距
+    margin-bottom: 0.5rem;
+    //宽高
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+
+    //右侧区域
+    .right-container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        //房产信息
+        .left-div{
+            display: flex;
+            flex-direction: column;
+            margin-left: 0.5rem;
+            line-height: 1.5rem;
+
+            .house-title{
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            .info{
+                color: #9F9F9F;
+            }
+        }
+
+        //均价
+        .right-div{
+            label{
+                font-size: 1.2rem;
+                color: red;
+            }
+        }
+    }
+
+}
